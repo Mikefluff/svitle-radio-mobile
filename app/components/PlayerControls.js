@@ -64,7 +64,7 @@ export class PlayerControls extends Reflux.Component {
     // so we need to send all information via setNowPlaying every time.
     if (Platform.OS === 'android' || initial) {
       MusicControl.setNowPlaying({
-        artist: "Світле Радіо",
+        artist: "Paradigm Music - KohPhangan radio",
         title: this.state.current,
         artwork: require('../img/artwork.png'),
         // iOS determines playback state depending on 'speed', so we need to set
@@ -138,7 +138,7 @@ export class PlayerControls extends Reflux.Component {
         <PlayingBlock styleBlock={styles.nowBlock}
                       styleTitle={styles.nowTitle}
                       styleSubTitle={styles.nowSubTitle}
-                      title="Зараз:"
+                      title="Now:"
                       text={this.state.current}/>
         <TouchableOpacity onPress={this._onPress}>
           <PlayButton status={this.state.status}/>
@@ -146,7 +146,7 @@ export class PlayerControls extends Reflux.Component {
         <PlayingBlock styleBlock={styles.nextBlock}
                       styleTitle={styles.nextTitle}
                       styleSubTitle={styles.nextSubTitle}
-                      title="Наступне:"
+                      title="Next:"
                       text={this.state.next}/>
       </View>
     )

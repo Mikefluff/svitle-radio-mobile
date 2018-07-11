@@ -22,7 +22,7 @@ export default class SvitleContainer extends Reflux.Component {
     this.store = MetadataStore;
   }
   _onPressBottomLink() {
-    Linking.openURL('https://svitle.org/');
+    Linking.openURL('https://paradigm-music.co/');
   }
   render() {
     var contents;
@@ -39,7 +39,7 @@ export default class SvitleContainer extends Reflux.Component {
           {contents}
           <TouchableOpacity onPress={this._onPressBottomLink}>
             <Text style={styles.bottomLink}>
-              Сайт радіо
+              Open radio site
             </Text>
           </TouchableOpacity>
         </View>

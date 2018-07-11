@@ -55,7 +55,7 @@ export class SvitleLogo extends Component {
 
 const styles = StyleSheet.create({
   logo: {
-    width: 200,
-    height: 91,
+    width: 300,
+    height: 300,
   },
 });

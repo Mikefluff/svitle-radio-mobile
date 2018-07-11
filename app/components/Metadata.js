@@ -51,15 +51,15 @@ export class MetadataStore extends Reflux.Store {
       return
     }
 
-    fetch("https://m.svitle.org/v1/status", {
+    fetch("http://radio.paradigm-music.co/api/nowplaying", {
       headers: { "User-Agent": this.user_agent },
     })
     .then((response) => response.json())
     .then((responseData) => {
       this.setState({
-        streamUrl: responseData.stream_url,
-        current: responseData.current || "",
-        next: responseData.next || "",
+        streamUrl: responseData[0].station.listen_url,
+        current: responseData[0].now_playing.song.text || "",
+        next: responseData[0].playing_next.song.text || "",
         flags: (responseData.flags || "").split(":"),
         lastUpdated: ts,
       });
