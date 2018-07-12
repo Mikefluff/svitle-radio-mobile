@@ -94,13 +94,13 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 26
     buildToolsVersion '28.0.1'
 
     defaultConfig {
         applicationId "com.svitleradio"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 1900
         versionName "1.9"
         ndk {
@@ -111,10 +111,14 @@ android {
         release {
             if (project.hasProperty('SVITLE_RELEASE_STORE_FILE')) {
                 storeFile file(SVITLE_RELEASE_STORE_FILE)
-                    storePassword SVITLE_RELEASE_STORE_PASSWORD
-                    keyAlias SVITLE_RELEASE_KEY_ALIAS
-                    keyPassword SVITLE_RELEASE_KEY_PASSWORD
+                storePassword SVITLE_RELEASE_STORE_PASSWORD
+                keyAlias SVITLE_RELEASE_KEY_ALIAS
+                keyPassword SVITLE_RELEASE_KEY_PASSWORD
             }
+            keyAlias 'key0'
+            keyPassword 'QWEpoi123'
+            storeFile file('/Users/mikefluff/Documents/android.jks')
+            storePassword 'QWEpoi123'
         }
     }
     splits {
@@ -148,12 +152,13 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-music-control')
-    compile project(':react-native-device-info')
-    compile project(':react-native-audio-streaming')
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(':react-native-music-control')
+    implementation project(':react-native-device-info')
+    implementation project(':react-native-audio-streaming')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.android.support:appcompat-v7:23.0.1'
+    api 'com.facebook.react:react-native:+'
+    // From node_modules
 }
 
 // Run this once to be able to run the application with BUCK
